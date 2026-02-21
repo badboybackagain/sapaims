@@ -27,11 +27,11 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { icon: Facebook, href: '#', label: 'Facebook' },
-    { icon: Twitter, href: '#', label: 'Twitter' },
-    { icon: Linkedin, href: '#', label: 'LinkedIn' },
-    { icon: Instagram, href: '#', label: 'Instagram' },
-    { icon: Youtube, href: '#', label: 'YouTube' },
+    { icon: Facebook, href: 'https://www.facebook.com/aimsinstitutepune', label: 'Facebook' },
+    { icon: Twitter, href: 'https://twitter.com/aimsinstipune', label: 'Twitter' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/in/aims-pune-a24433261/', label: 'LinkedIn' },
+    { icon: Instagram, href: 'https://www.instagram.com/p/CycqjJeNBIA/?img_index=1', label: 'Instagram' },
+    { icon: Youtube, href: 'http://www.youtube.com/@aimsinstitutepune1', label: 'YouTube' },
   ];
 
   return (
@@ -51,7 +51,7 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-white/70 text-sm leading-relaxed mb-6">
-              AIMS Institute of Management Studies is a premier SAP training institute in Pune, 
+              AIMS Institute of Management Studies is a premier SAP training institute in Pune,
               offering comprehensive ERP education with 100% placement assistance.
             </p>
             {/* Social Links */}
@@ -76,7 +76,7 @@ const Footer = () => {
             <ul className="space-y-3">
               {quickLinks.map((link, index) => (
                 <li key={index}>
-                  <a 
+                  <a
                     href={link.href}
                     className="text-white/70 hover:text-[#F59E0B] transition-colors text-sm"
                     data-testid={`footer-link-${index}`}
@@ -119,8 +119,8 @@ const Footer = () => {
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="text-[#F59E0B] flex-shrink-0" size={18} />
-                <a href="mailto:admissions@aimsinstitute.in" className="text-white/70 hover:text-[#F59E0B] text-sm transition-colors">
-                  admissions@aimsinstitute.in
+                <a href="mailto:info@aimsinstitute.co.in" className="text-white/70 hover:text-[#F59E0B] text-sm transition-colors">
+                  info@aimsinstitute.co.in
                 </a>
               </div>
               <div className="flex items-center gap-3">

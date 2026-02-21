@@ -133,7 +133,7 @@ const EnquiryForm = () => {
               Start Your SAP Career Journey
             </h2>
             <p className="text-[#475569] text-lg leading-relaxed mb-8">
-              Fill out the enquiry form and our admissions counselor will get in touch with you 
+              Fill out the enquiry form and our admissions counselor will get in touch with you
               to discuss your career goals and guide you through the enrollment process.
             </p>
 
@@ -156,8 +156,8 @@ const EnquiryForm = () => {
                 </div>
                 <div>
                   <p className="text-[#475569] text-sm">Email Us</p>
-                  <a href="mailto:admissions@aimsinstitute.in" className="font-['Outfit'] font-bold text-[#0A2540] hover:text-[#F59E0B]">
-                    admissions@aimsinstitute.in
+                  <a href="mailto:info@aimsinstitute.co.in" className="font-['Outfit'] font-bold text-[#0A2540] hover:text-[#F59E0B]">
+                    info@aimsinstitute.co.in
                   </a>
                 </div>
               </div>
@@ -249,8 +249,8 @@ const EnquiryForm = () => {
                   <BookOpen size={16} />
                   Course Interest *
                 </Label>
-                <Select 
-                  value={formData.course_interest} 
+                <Select
+                  value={formData.course_interest}
                   onValueChange={(value) => handleSelectChange('course_interest', value)}
                   required
                 >
@@ -274,8 +274,8 @@ const EnquiryForm = () => {
                     <GraduationCap size={16} />
                     Education Level *
                   </Label>
-                  <Select 
-                    value={formData.education_level} 
+                  <Select
+                    value={formData.education_level}
                     onValueChange={(value) => handleSelectChange('education_level', value)}
                     required
                   >
@@ -296,8 +296,8 @@ const EnquiryForm = () => {
                     <Briefcase size={16} />
                     Work Experience
                   </Label>
-                  <Select 
-                    value={formData.work_experience} 
+                  <Select
+                    value={formData.work_experience}
                     onValueChange={(value) => handleSelectChange('work_experience', value)}
                   >
                     <SelectTrigger className="h-12 rounded-xl border-slate-200" data-testid="select-experience">

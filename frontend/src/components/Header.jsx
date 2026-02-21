@@ -41,9 +41,9 @@ const Header = ({ onApplyClick }) => {
               <Phone size={14} />
               <span>+91 98765 43210</span>
             </a>
-            <a href="mailto:admissions@aimsinstitute.in" className="flex items-center gap-2 hover:text-[#F59E0B] transition-colors" data-testid="header-email">
+            <a href="mailto:info@aimsinstitute.co.in" className="flex items-center gap-2 hover:text-[#F59E0B] transition-colors" data-testid="header-email">
               <Mail size={14} />
-              <span>admissions@aimsinstitute.in</span>
+              <span>info@aimsinstitute.co.in</span>
             </a>
           </div>
           <div className="flex items-center gap-4">
@@ -53,10 +53,9 @@ const Header = ({ onApplyClick }) => {
       </div>
 
       {/* Main Header */}
-      <header 
-        className={`sticky top-0 z-50 transition-all duration-300 ${
-          isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-white'
-        }`}
+      <header
+        className={`sticky top-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-white'
+          }`}
         data-testid="main-header"
       >
         <div className="max-w-7xl mx-auto px-4 md:px-8">
@@ -135,9 +134,9 @@ const Header = ({ onApplyClick }) => {
                   <Phone size={16} />
                   <span>+91 98765 43210</span>
                 </a>
-                <a href="mailto:admissions@aimsinstitute.in" className="flex items-center gap-2 px-4 py-2 text-[#475569]">
+                <a href="mailto:info@aimsinstitute.co.in" className="flex items-center gap-2 px-4 py-2 text-[#475569]">
                   <Mail size={16} />
-                  <span>admissions@aimsinstitute.in</span>
+                  <span>info@aimsinstitute.co.in</span>
                 </a>
               </div>
             </nav>
