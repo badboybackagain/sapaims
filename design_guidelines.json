@@ -1,0 +1,135 @@
+{
+  "design_system": {
+    "typography": {
+      "font_family": {
+        "heading": "Outfit, sans-serif",
+        "body": "Inter, sans-serif"
+      },
+      "scale": {
+        "h1": "text-4xl md:text-6xl font-bold tracking-tight",
+        "h2": "text-3xl md:text-5xl font-bold tracking-tight",
+        "h3": "text-2xl md:text-3xl font-semibold",
+        "body_large": "text-lg md:text-xl leading-relaxed",
+        "body_default": "text-base leading-relaxed text-slate-600"
+      }
+    },
+    "colors": {
+      "primary": {
+        "DEFAULT": "#0A2540",
+        "light": "#1E3A8A",
+        "dark": "#020617"
+      },
+      "accent": {
+        "DEFAULT": "#F59E0B",
+        "hover": "#D97706",
+        "foreground": "#FFFFFF"
+      },
+      "background": {
+        "default": "#FFFFFF",
+        "subtle": "#F8FAFC",
+        "dark": "#0F172A"
+      },
+      "text": {
+        "primary": "#0F172A",
+        "secondary": "#475569",
+        "muted": "#94A3B8",
+        "inverted": "#FFFFFF"
+      }
+    },
+    "spacing": {
+      "section_padding": "py-16 md:py-24",
+      "container_padding": "px-4 md:px-8",
+      "element_gap": "gap-6 md:gap-8"
+    },
+    "border_radius": {
+      "card": "rounded-xl",
+      "button": "rounded-full",
+      "input": "rounded-lg"
+    },
+    "shadows": {
+      "card": "shadow-lg hover:shadow-xl transition-shadow duration-300",
+      "button": "shadow-md hover:shadow-lg"
+    }
+  },
+  "components": {
+    "buttons": {
+      "primary": "bg-[#F59E0B] text-white hover:bg-[#D97706] font-semibold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1",
+      "secondary": "bg-white text-[#0A2540] border-2 border-[#0A2540] hover:bg-[#F8FAFC] font-semibold px-8 py-4 rounded-full transition-all",
+      "ghost": "text-[#0A2540] hover:text-[#F59E0B] font-medium transition-colors"
+    },
+    "cards": {
+      "feature": "bg-white p-8 rounded-xl shadow-sm border border-slate-100 hover:border-blue-100 hover:shadow-md transition-all group",
+      "testimonial": "bg-[#F8FAFC] p-8 rounded-2xl border border-slate-200 relative"
+    },
+    "inputs": {
+      "default": "h-12 bg-white border-slate-200 focus:border-[#0A2540] focus:ring-[#0A2540] rounded-lg"
+    }
+  },
+  "layout_strategies": {
+    "hero": "Split layout: Left content (Headline, Subhead, CTA), Right visual (Image/Graphic). Background: Deep Blue gradient or clean white with blue accents.",
+    "grid": "Bento grid for modules: Mix of 1x1 and 2x1 cards to create visual interest.",
+    "section_alternation": "Alternate between White and Subtle Grey (#F8FAFC) backgrounds to separate content blocks."
+  },
+  "assets": {
+    "images": {
+      "hero_bg": "https://images.pexels.com/photos/33092906/pexels-photo-33092906.jpeg",
+      "classroom": "https://images.pexels.com/photos/5427868/pexels-photo-5427868.jpeg",
+      "meeting": "https://images.pexels.com/photos/1181396/pexels-photo-1181396.jpeg",
+      "student_portrait_1": "https://images.unsplash.com/photo-1770235622059-f544451fbe94?crop=entropy&cs=srgb&fm=jpg&q=85",
+      "student_portrait_2": "https://images.unsplash.com/photo-1686844626297-5a5f3e9e236b?crop=entropy&cs=srgb&fm=jpg&q=85",
+      "student_portrait_3": "https://images.pexels.com/photos/11157984/pexels-photo-11157984.jpeg"
+    },
+    "icons": "Use Lucide React icons (e.g., BookOpen, Users, Trophy, Globe, Briefcase, CheckCircle)"
+  },
+  "content_data": {
+    "hero": {
+      "headline": "Study, Learn & Become a SAP Global Consultant!",
+      "subheadline": "52 Weeks of intensive learning. 100% Placement Assistance. Internationally Recognized Certification.",
+      "cta_primary": "Download Brochure",
+      "cta_secondary": "Apply Now"
+    },
+    "modules": [
+      { "title": "Financial Accounting (FI)", "desc": "Master financial accounting & S/4HANA Finance." },
+      { "title": "Sales & Distribution (SD)", "desc": "Order fulfillment & S/4HANA Sales processes." },
+      { "title": "Material Management (MM)", "desc": "Sourcing, procurement & inventory management." },
+      { "title": "Production Planning (PP)", "desc": "SCM planning & manufacturing strategies." },
+      { "title": "Human Capital Management (HCM)", "desc": "HR processes & SuccessFactors integration." },
+      { "title": "Advanced ABAP", "desc": "Programming on HANA & custom development." }
+    ],
+    "benefits": [
+      "100% Placement Assistance",
+      "Industrial Project & Case Study based teaching",
+      "Internationally recognized SAP Certificate",
+      "Soft Skills & Personality Development",
+      "Exposure to Power BI & Tableau",
+      "Foreign Language (Japanese/German)"
+    ],
+    "testimonials": [
+      {
+        "name": "Saurabh Singh Jadhav",
+        "role": "Student",
+        "text": "AIMS offers quality education. The supportive faculty has helped me transition from a pharmacy background to decision science and accounting."
+      },
+      {
+        "name": "Siddhi Kanitkar",
+        "role": "Student",
+        "text": "My AEEP journey has been exciting. The smaller student intake enhances faculty connections, making AIMS a fantastic place for growth."
+      },
+      {
+        "name": "Aaqib Mukadam",
+        "role": "Student",
+        "text": "AIMS is building my practical knowledge and skills. Being a Placement Coordinator has improved my leadership skills."
+      }
+    ]
+  },
+  "instructions_to_main_agent": [
+    "Use 'Outfit' font for all headings to give a bold, modern look.",
+    "Implement the 'Enquiry Form' as a sticky element or a very prominent section near the bottom.",
+    "Use the 'Bento Grid' layout for the Course Modules section.",
+    "Ensure the 'Apply Now' button is always visible (e.g., in a sticky header).",
+    "Use the provided image URLs for the respective sections.",
+    "For the 'Recruiters' section, create a marquee of text logos if image logos are not available, or use placeholders with names like Deloitte, Accenture, IBM, etc.",
+    "Ensure mobile responsiveness is top-tier, especially for the form.",
+    "Add 'data-testid' to all interactive elements."
+  ]
+}
