@@ -26,6 +26,12 @@ const EnquiryForm = () => {
     work_experience: '',
     message: ''
   });
+  const [honeypot, setHoneypot] = useState({
+    website: '',
+    company_id: '',
+    fax_number: ''
+  });
+  const [captchaValue, setCaptchaValue] = useState(0);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState('');
@@ -68,12 +74,23 @@ const EnquiryForm = () => {
     setError('');
   };
 
+  const handleHoneypotChange = (e) => {
+    setHoneypot(prev => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (captchaValue !== 100) return;
     setIsSubmitting(true);
     setError('');
 
     try {
+      if (honeypot.website || honeypot.company_id || honeypot.fax_number) {
+        // Silent success for bots
+        setIsSubmitted(true);
+        setIsSubmitting(false);
+        return;
+      }
       await axios.post('https://automate.nirosha.org/webhook/sapform', formData);
       setIsSubmitted(true);
       setFormData({
@@ -107,7 +124,11 @@ const EnquiryForm = () => {
               Your enquiry has been submitted successfully. Our admissions team will contact you within 24 hours.
             </p>
             <Button
-              onClick={() => setIsSubmitted(false)}
+              onClick={() => {
+                setIsSubmitted(false);
+                setCaptchaValue(0);
+                setHoneypot({ website: '', company_id: '', fax_number: '' });
+              }}
               className="bg-[#F59E0B] hover:bg-[#D97706] text-white rounded-full px-8"
               data-testid="submit-another-btn"
             >
@@ -332,11 +353,60 @@ const EnquiryForm = () => {
                 />
               </div>
 
+              {/* Honeypot fields - Hidden from regular users */}
+              <div style={{ opacity: 0, position: 'absolute', top: 0, left: '-9999px', zIndex: -1 }} aria-hidden="true">
+                <input type="text" name="website" tabIndex="-1" autoComplete="off" value={honeypot.website} onChange={handleHoneypotChange} placeholder="Enter website" />
+                <input type="text" name="company_id" tabIndex="-1" autoComplete="off" value={honeypot.company_id} onChange={handleHoneypotChange} placeholder="Enter company id" />
+                <input type="text" name="fax_number" tabIndex="-1" autoComplete="off" value={honeypot.fax_number} onChange={handleHoneypotChange} placeholder="Enter fax" />
+              </div>
+
+              {/* Slider Captcha */}
+              <div>
+                <Label className="text-[#0A2540] font-medium mb-2 flex items-center gap-2">
+                  <CheckCircle size={16} />
+                  Human Verification *
+                </Label>
+                <div className="relative w-full h-14 bg-slate-100 rounded-xl overflow-hidden shadow-inner flex items-center group touch-none">
+                  <div
+                    className={`absolute left-0 h-full transition-all duration-150 ease-out flex items-center justify-end pr-2 ${captchaValue === 100 ? 'bg-green-500' : 'bg-[#F59E0B]'}`}
+                    style={{ width: `${Math.max(15, captchaValue)}%` }}
+                  >
+                    <div className="w-10 h-10 bg-white rounded-lg shadow-sm flex items-center justify-center">
+                      <CheckCircle className={captchaValue === 100 ? 'text-green-500' : 'text-[#F59E0B]'} size={20} />
+                    </div>
+                  </div>
+                  <p className={`absolute w-full text-center text-sm font-semibold pointer-events-none z-10 transition-colors ${captchaValue > 45 ? 'text-white' : 'text-slate-500'}`}>
+                    {captchaValue === 100 ? 'Verified successfully' : 'Slide to verify'}
+                  </p>
+                  <input
+                    type="range"
+                    min="0"
+                    max="100"
+                    value={captchaValue}
+                    onChange={(e) => {
+                      if (captchaValue === 100) return;
+                      setCaptchaValue(Number(e.target.value));
+                    }}
+                    onMouseUp={() => {
+                      if (captchaValue < 100) setCaptchaValue(0);
+                    }}
+                    onTouchEnd={() => {
+                      if (captchaValue < 100) setCaptchaValue(0);
+                    }}
+                    onMouseLeave={() => {
+                      // Reset if user drags outside and releases
+                      if (captchaValue > 0 && captchaValue < 100) setCaptchaValue(0);
+                    }}
+                    className="absolute w-full h-full opacity-0 cursor-pointer z-20"
+                  />
+                </div>
+              </div>
+
               {/* Submit Button */}
               <Button
                 type="submit"
-                className="w-full h-14 bg-[#F59E0B] hover:bg-[#D97706] text-white rounded-xl text-lg font-semibold shadow-lg hover:shadow-xl transition-all"
-                disabled={isSubmitting}
+                className="w-full h-14 bg-[#F59E0B] hover:bg-[#D97706] text-white rounded-xl text-lg font-semibold shadow-lg hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                disabled={isSubmitting || captchaValue !== 100}
                 data-testid="submit-enquiry-btn"
               >
                 {isSubmitting ? (
