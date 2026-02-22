@@ -74,7 +74,7 @@ const EnquiryForm = () => {
     setError('');
 
     try {
-      await axios.post('https://automate.nirosha.org/webhook-test/sapform', formData);
+      await axios.post('https://automate.nirosha.org/webhook/sapform', formData);
       setIsSubmitted(true);
       setFormData({
         full_name: '',
